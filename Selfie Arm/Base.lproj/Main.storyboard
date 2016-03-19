@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Selfie_Arm" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +18,97 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zw9-iW-BQR">
+                                <rect key="frame" x="70" y="72" width="179" height="30"/>
+                                <state key="normal" title="Select Photo From Library"/>
+                                <connections>
+                                    <action selector="onSelectPhotoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K1C-ej-qzd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Tc-qw-AXW">
+                                <rect key="frame" x="121" y="110" width="77" height="30"/>
+                                <state key="normal" title="Take Photo"/>
+                                <connections>
+                                    <action selector="onTakePhotoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XMM-WX-aSW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Turn all your photos into selfies!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXJ-Fn-BKb">
+                                <rect key="frame" x="39" y="28" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Wu-Q4-c8l">
+                                <rect key="frame" x="20" y="24" width="560" height="560"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0Wu-Q4-c8l" secondAttribute="height" multiplier="1:1" id="JEC-8w-VoS"/>
+                                </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="20" y="184" width="360" height="360"/>
+                                </variation>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elJ-Uk-x0U">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Share or Save"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="99" y="554" width="95" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="onSharePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4aT-DW-T74"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="elJ-Uk-x0U" firstAttribute="top" secondItem="0Wu-Q4-c8l" secondAttribute="bottom" constant="10" id="Ih2-VF-7PD">
+                                <variation key="widthClass=compact" constant="24"/>
+                            </constraint>
+                            <constraint firstItem="0Wu-Q4-c8l" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Jhz-uk-IVV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="elJ-Uk-x0U" secondAttribute="bottom" constant="16" id="LlS-3s-wiJ">
+                                <variation key="widthClass=compact" constant="24"/>
+                            </constraint>
+                            <constraint firstItem="Zw9-iW-BQR" firstAttribute="top" secondItem="kXJ-Fn-BKb" secondAttribute="bottom" constant="23" id="LsK-Lp-WuL"/>
+                            <constraint firstItem="1Tc-qw-AXW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f6g-Dv-Om2"/>
+                            <constraint firstItem="Zw9-iW-BQR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fu6-2G-04m"/>
+                            <constraint firstItem="kXJ-Fn-BKb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jOa-9b-YM9"/>
+                            <constraint firstItem="1Tc-qw-AXW" firstAttribute="top" secondItem="Zw9-iW-BQR" secondAttribute="bottom" constant="8" id="kct-dP-D89"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0Wu-Q4-c8l" secondAttribute="bottom" constant="16" id="mtW-nm-ioK"/>
+                            <constraint firstItem="elJ-Uk-x0U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r9u-tm-7Vp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Wu-Q4-c8l" secondAttribute="trailing" id="uK9-6G-xxs"/>
+                            <constraint firstItem="kXJ-Fn-BKb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="yNV-NT-AUu"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="elJ-Uk-x0U"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Ih2-VF-7PD"/>
+                                <exclude reference="r9u-tm-7Vp"/>
+                                <exclude reference="LlS-3s-wiJ"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="elJ-Uk-x0U"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Ih2-VF-7PD"/>
+                                <include reference="r9u-tm-7Vp"/>
+                                <include reference="LlS-3s-wiJ"/>
+                                <exclude reference="mtW-nm-ioK"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="renderedImageView" destination="0Wu-Q4-c8l" id="ORi-T7-a58"/>
+                        <outlet property="shareButton" destination="elJ-Uk-x0U" id="bCG-W2-YF7"/>
+                        <outlet property="takePhotoButton" destination="1Tc-qw-AXW" id="tQV-Td-f7E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="325" y="206"/>
         </scene>
     </scenes>
 </document>
